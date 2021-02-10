@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.0.2)
 project(genisys_imu)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
@@ -9,8 +9,9 @@ add_compile_options(-std=c++11)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  serial
+  # serial
   tf
+  rosserial_python
 )
 
 ## System dependencies are found with CMake's conventions
@@ -206,11 +207,11 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
-add_executable(genisys_imu
-  include/genisys_imu/genisys_imu.h
-  src/genisys_imu.cpp
-)
-add_dependencies(genisys_imu ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(genisys_imu
-  ${catkin_LIBRARIES}
-)
+# add_executable(genisys_imu
+#   include/genisys_imu/genisys_imu.h
+#   src/genisys_imu.cpp
+# )
+# add_dependencies(genisys_imu ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# target_link_libraries(genisys_imu
+#   ${catkin_LIBRARIES}
+# )

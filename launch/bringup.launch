@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="OUTPUT_METHOD" default="screen"/>
+    <arg name="RESPAWN" default="false"/>
+    <arg name="port" default="/dev/ttyACM0"/>
+
+    <node name="genisys_imu" pkg="rosserial_python" type="serial_node.py" output="$(arg OUTPUT_METHOD)" respawn="$(arg RESPAWN)">
+        <param name="port" value="$(arg port)"/>
+        <param name="baud" value="912600"/>
+
+        <param name="frame_id" type="str" value="imu_link"/>
+        <param name="use_compass" type="bool" value="true"/>
+        <param name="orientation_stddev" type="double" value="-1.0"/>
+        <param name="angular_velocity_stddev" type="double" value="-1.0"/>
+        <param name="linear_acceleration_stddev" type="double" value="-1.0"/>
+        <param name="magnetic_field_stddev" type="double" value="-1.0"/>
+    </node>
+</launch>
