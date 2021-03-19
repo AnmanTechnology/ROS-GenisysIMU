@@ -106,7 +106,9 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES genisys_imu
-#  CATKIN_DEPENDS roscpp serial
+ CATKIN_DEPENDS 
+  roscpp
+  # serial
 #  DEPENDS system_lib
 )
 

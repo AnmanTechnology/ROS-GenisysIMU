@@ -9,7 +9,7 @@
         <param name="baud" value="912600"/>
 
         <param name="frame_id" type="str" value="imu_link"/>
-        <param name="use_compass" type="bool" value="true"/>
+        <param name="use_compass" type="bool" value="false"/>
         <param name="orientation_stddev" type="double" value="-1.0"/>
         <param name="angular_velocity_stddev" type="double" value="-1.0"/>
         <param name="linear_acceleration_stddev" type="double" value="-1.0"/>
