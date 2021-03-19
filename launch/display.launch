@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- RViz -->
+    <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find genisys_imu)/rviz/display.rviz"/>
+</launch>
