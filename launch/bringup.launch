@@ -10,9 +10,13 @@
 
         <param name="frame_id" type="str" value="imu_link"/>
         <param name="use_compass" type="bool" value="false"/>
+        <!-- oritentation_stddev datasheet = 0.0025 -->
         <param name="orientation_stddev" type="double" value="-1.0"/>
+        <!-- angular_velocity_stddev datasheet = 0.02 -->
         <param name="angular_velocity_stddev" type="double" value="-1.0"/>
+        <!-- linear_acceleration_stddev datasheet = 0.04 -->
         <param name="linear_acceleration_stddev" type="double" value="-1.0"/>
+        <!-- magnetic_field_stddev datasheet = 0.0048 -->
         <param name="magnetic_field_stddev" type="double" value="-1.0"/>
     </node>
 </launch>

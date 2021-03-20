@@ -1,9 +1,14 @@
 # Genisys Imu
 
+Genisys คือโมดูล Imu 9DoF ผลิตโดย Anman ที่สามารถให้ค่าของ Orientaion ออกมาโดยใช้ Digital Motion Processor (DMP) ของตัวชิปเป็นของ TDK InvenSense ICM-20948
 
-## How to build GenisysImu ROS package
+ข้อมูลที่ส่งออกมาจะมี:	
+* Orientation, Accelerometer และ Gyroscope (sensor_msgs/Imu) ~170Hz: `/imu/data`
+* Magnetometer (sensor_msgs/MagneticField) ~60Hz: `/imu/mag`
 
-1) clone the repository to your catkin's workspace src folder and add rules
+## วิธีการ build แพ็กเกจ genisys_imu
+
+1) clone the repository to your catkin's workspace src folder and add udev rules
 
     ```
     $ cd ~/catkin_ws/src
@@ -12,21 +17,18 @@
     $ sudo cp 99-genisys-imu.rules /etc/udev/rules.d/
     $ sudo udevadm control --reload-rules
     $ sudo udevadm trigger
+	$ cd ~/catkin_ws/
+	$ catkin build __or__ catkin_make
     ```
     ![](docs/buildpackage.png)
-
-2) make
-
-    ```
-    $ cd ~/catkin_ws/
-    $ catkin build __or__ catkin_make
-    ```
     ![](docs/make_ws.png)
+	เมื่อสำเร็จแล้วไม่เจอ Error
 
 ## วิธีการใช้งานบอร์ด Genisys imu กับ ROS
 
 1) เชื่อมต่อบอร์ด Genisys imu กับคอมพิวเตอร์ผ่านสาย micro USB
     ![](docs/imu_usb_connected.jpg)
+    เมื่อเสียบแล้วจะมีไฟสถานะสีเหลืองขึ้น
 
 2) เช็คว่าคอมพิวเตอร์มองเห็นพอร์ต USB รึยังใช้คำสั่ง
     ```
@@ -47,7 +49,7 @@
     ![](docs/launch_genisys_port.png)
 
 4) ทดสอบอ่านค่าจาก topic
-    สำหรับบอร์ด Genisys จะมี topic ออกมาอยู่ 3 ตัวคือ
+    สำหรับบอร์ด Genisys เมื่อรันแล้วจะมี topic ออกมาอยู่ 3 ตัวคือ
     * /imu/data เป็นค่าของ Orientation, Accel, Gyro ชนิด sensor_msg/Imu
     * /imu/mag เป็นค่าของ Magnetic field ชนิด sensor_msg/MagneticField
     * /imu/command เป็น topic ใช้สำหรับรีเซ็ท Imu
