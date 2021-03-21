@@ -2,6 +2,18 @@
 
 Genisys คือโมดูล Imu 9DoF ผลิตโดย Anman ที่สามารถให้ค่าของ Orientaion ออกมาโดยใช้ Digital Motion Processor (DMP) ของตัวชิปเป็นของ TDK InvenSense ICM-20948
 
+| ข้อมูลเซนเซอร์   | รายละเอียด |
+| :-----------: | :-----------: |
+| IMU Chip  | ICM-20948  |
+| MCU Chip  | STM32F411  |
+| Hardware Interface  | USB port และ TTL serial port |
+| Data Output | Accelerate/Angular velocity/Mannetic field/Quaternion |
+| Angular accuracy | X,Y Axis 0.05° (static) / 0.1° (dynamic) |
+| Accelerate accuracy | 0.02g |
+| Gyro accuracy | 0.06°/s |
+| Data frequent | ~170Hz (IMU data) ~60Hz(Magnetic field) |
+
+
 ข้อมูลที่ส่งออกมาจะมี:	
 * Orientation, Accelerometer และ Gyroscope (sensor_msgs/Imu) ~170Hz: `/imu/data`
 * Magnetometer (sensor_msgs/MagneticField) ~60Hz: `/imu/mag`
